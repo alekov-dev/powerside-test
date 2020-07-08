@@ -9,10 +9,10 @@ import { Customer } from 'src/app/models/customer.model';
 
 export class DetailsComponent implements OnInit {
   @Output() onSaveEvent = new EventEmitter();
-  private status = ['Présent', 'Absent', 'Peut-être'];
-  private sex = ['M', 'F'];
-  private customer: Customer = new Customer();
-  private isDataCompleted = false;
+  status = ['Présent', 'Absent', 'Peut-être'];
+  sex = ['M', 'F'];
+  customer: Customer = new Customer();
+  isDataCompleted = false;
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
     this.customerInit();
   }
 
-  private customerInit(): void {
+  customerInit(): void {
     this.customer = new Customer();
     this.customer.firstName = '';
     this.customer.lastName = '';
@@ -28,12 +28,12 @@ export class DetailsComponent implements OnInit {
     this.customer.status = null;
   }
 
-  private onInputChanged(): void {
+  onInputChanged(): void {
     // Set flag "isDataCompleted" to true if all fields were filled. Uses to show/hide Save button.
     this.isDataCompleted = !!(this.customer.firstName && this.customer.lastName && this.customer.sex && this.customer.status);
   }
 
-  private onSave(): void {
+  onSave(): void {
     // Send event to parent component.
     this.onSaveEvent.emit(this.customer);
 

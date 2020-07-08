@@ -10,9 +10,9 @@ import { Customer } from 'src/app/models/customer.model';
 })
 
 export class MainComponent implements OnInit, OnDestroy {
-  private labelValueRef: Subscription = null;
-  private labelValue: string = '';
-  private customerInfo = '';
+  labelValueRef: Subscription = null;
+  labelValue: string = '';
+  customerInfo = '';
   constructor(private labelUpdateService: LabelUpdateService) { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
     });
   }
 
-  private showCustomerData(pCustomer: Customer): void {
+  showCustomerData(pCustomer: Customer): void {
     this.customerInfo = `Prénom: ${pCustomer.firstName}, Nom: ${pCustomer.lastName}, Statut: ${pCustomer.status}, Sexe: ${pCustomer.sex}`;
   }
 
