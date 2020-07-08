@@ -1,0 +1,10 @@
+<div class="main-container">
+    <div class="banner container">{{labelValue}}</div>
+    <div class="customer-info container">
+        <div>Détails du client:</div>
+        <div>{{customerInfo}}</div>
+    </div>
+    <div class="container">
+        <app-details (onSaveEvent)="showCustomerData($event)"></app-details>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="field">
+    <label>Prénom:</label>
+    <input type="text" [(ngModel)]="customer.firstName" name="txtFirstName" (change)="onInputChanged()">
+</div>
+
+<div class="field">
+    <label>Nom:</label>
+    <input type="text" [(ngModel)]="customer.lastName" name="txtLastName" (change)="onInputChanged()">
+</div>
+
+<div class="field">
+    <label>Statut:</label>
+    <select [(ngModel)]="customer.status" name="ddlStatus" (change)="onInputChanged()">
+        <option [ngValue]="null">Choisir</option>
+        <option *ngFor="let stat of status" [ngValue]="stat">{{stat}}</option>
+    </select>
+</div>
+
+<div class="field">
+    <label>Sexe:</label>
+    <select [(ngModel)]="customer.sex" name="ddlSex" (change)="onInputChanged()">
+        <option [ngValue]="null">Choisir</option>
+        <option *ngFor="let s of sex" [ngValue]="s">{{s}}</option>
+    </select>
+</div>
+
+<div>
+    <button *ngIf="isDataCompleted" (click)="onSave()">Save</button>
+</div>
